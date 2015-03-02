@@ -1,0 +1,17 @@
+basic missions setting
+	in leerer (?) Welt spawnt Gegner-wave
+		man kann 3/6 Helden aussuchen, mit je 3 Fähigkeiten, die rundenbasiert gegen die Gegner kämpfen
+		? zusätzliche generische Units als allies
+			->clear führt zu Upgrade-Screen, in dem Fähigkeiten/Schiffe upgraded werden
+			
+			
+Anforderungen: 
+	Enemy-design
+	Hero-Charakter durch Fähigkeiten, Voice und Schiffs-Aussehen
+		Hero-lvl-Optionen
+	Basic AI
+	Basic engine
+	
+optionale Zusatz-Features:
+	Items
+	Hindernisse (Meteoriten/Gegner-Leichen/Weltraum-Schrott)
