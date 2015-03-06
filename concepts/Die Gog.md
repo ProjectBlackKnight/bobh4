@@ -33,7 +33,7 @@ Positionsänderung
 
 ## Das Zeichen (Korvetten)
 ### Aussehen
-* ![Devil Sign](http://de.wikipedia.org/wiki/Datei:Metalhand.com_Promostand.jpg)
+* ![Devil Sign](http://upload.wikimedia.org/wikipedia/commons/d/d4/Gesture_raised_fist_with_index_and_pinky_lifted.jpg)
 * Aussehen wie Bild
 
 ###Verhalten und Effekte
