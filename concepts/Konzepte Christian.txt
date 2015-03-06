@@ -1,0 +1,94 @@
+Konzept 1
+
+Schiff Valkyrie
+
+Allgemeine Beschreibung:
+
+Das Schiff ist eines der mittleren Klasse, welches über gute Schilde verfügt, passable 
+Waffen und eine sehr starke Außenhülle. Neben den zwei Frontwaffen hat es auch 
+eine Heckwaffe. Eine Bucht für 10 Raketen ist auch vorhanden. Die Form des 
+Schiffes erinnert an einen Falken beim Flügel schlagen.
+
+Normale Fähigkeit: Angriff mit den beiden Vorderwaffen.
+
+Normale Fähigkeit 2: Angriff mit der hinteren Waffe
+
+Automatische Fähigkeit: Leichter Angriff mit der hinteren Waffe, wenn ein feindliches 
+Schiff im Angriffsradius vorbei fliegt.
+
+Encounterfähigkeit (automatisch): Übersteigt der Schaden den aktuellen Schildwert 
+um dann die Hülle zu beschädigen, wird der eintreffende Schaden um 50% reduziert. 
+Dieser reduzierte Schaden wird dann auf einen normalen Angriff hinzuaddiert, 
+welcher als Reaktion abgefeuert wird.
+
+Spezialfähigkeit: Wenn ein gewisses Energieniveau erreicht wurde, kann via 
+Dimensionssprung an eine beliebige Stelle gesprungen werden um dann die 
+Schwachstelle des Gegners anzugreifen.
+
+Aussagen vom Schiff beim Anklicken:
+
+Kein Schaden: „Ich hoffe ihr habt genau so Angst wie unsere Gegner. Die solltet ihr 
+auch haben. HaHaHaHaHa.
+
+Leicht beschädigt: „Aua, pass doch auf du Idiot (weiblich)
+
+Mittlerer Schaden: „Sag mal bist du nur unfähig oder tust du nur so. Pass jetzt 
+gefälligst auf.“
+
+Stark beschädigt: „Mach jetzt endlich was, sonst wirst du deines Lebens nicht mehr 
+froh.“
+
+Aussage bei Vernichtung: „Das wirst du bis an dein Lebensende be…reu…en.“
+
+
+Konzept 2
+
+Schiff Loki
+
+Allgemeine Beschreibung:
+
+Das Schiff Loki ist ein leichtes Schiff. Die Schilde und die Außenhülle dieses Schiffes 
+sind nur leichter Natur, dafür kann es mit einer großen Reichweite aufwarten. Neben 
+einer großen Reichweite hat dieses Schiff auch eine erhöhte Geschwindigkeit mit der 
+es sich durch den Raum bewegt. Zudem sollte man die Waffen dieses Schiffes nicht 
+unterschätzen, da es über 4 Frontwaffen verfügt. Das Schiff selber erinnert an einen 
+pfeilschnellen Blitz, weil es das ist, was die Feinde meistens nur zu sehen 
+bekommen.
+
+Normaler Angriff: Angriff über größere Distanz (min. doppelte Distanz von anderen 
+Waffen) möglich mit allen vier Waffen.
+
+Normaler Angriff 2: Überlädt kurzfristig die Waffen und greift ein näheres Ziel mit 
+doppelter Wucht der 4 Waffen an.
+
+Spezialfähigkeit: Kann genutzt werden, wenn die Schilde unten sind. 
+Phasenverschiebung wodurch das Schiff kurzfristig aus dem Raum verschwindet um 
+die Schilde auf Maximum zu regenerieren. Kann nur als einzigstes in dieser Runde 
+verwendet werden. Kann bis zum Beginn des nächsten Zuges nichts machen und 
+kann auch nicht angegriffen werden. Taucht an einer wenig gefährlichen Stelle 
+wieder auf.
+
+
+
+Konzept 3
+
+Schiff Thor
+
+Allgemeine Beschreibung:
+
+Das Schiff Thor ist ein Schiff der schweren Klasse. Dieses Schiff hat sehr hohe 
+Schilde und Außenhülle, büßt dafür aber etwas an Geschwindigkeit ein. Seine 3 
+Waffen die Vorne montiert sind fügen erhöhten Schaden zu und können sich so 
+ausrichten, dass sie 270° Angriffsradius zur Verfügung stellen. Da es berühmt für 
+seinen besonderen Energiekern ist, wird das Schiff immer mit einem Blitz und einem 
+Hammer die sich kreuzen bemalt. Da für dieses Schiff aber kein einheitliches 
+Äußeres existiert, kann man nie vorhersagen, ob der Gegner jetzt zur Thorklasse 
+gehört oder nicht.
+
+Normaler Angriff: Kann bis zu 3 Gegner gleichzeitig angreifen.
+
+Normaler Angriff 2: Greift ein Ziel 3 Mal an.
+
+Spezialfähigkeit: Wird das Thor Schiff angegriffen, besteht eine Chance von 40% den 
+Angreifer mittels einer EMP Welle lahmzulegen.
+
