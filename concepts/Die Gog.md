@@ -46,6 +46,7 @@ Positionsänderung
 * ![Skull](http://us.123rf.com/450wm/iwant61/iwant611408/iwant61140800040/30943311-scary-damon-schadel.jpg)
 * Aussehen nach Bild
 * Traktorstahl soll die Entermanöver vereinfachen
+* 
 ### Verhalten und Effekte
 * Nehmen nächstes Heldenschiff als Ziel
 * Gehen auf mittlere Distanz
