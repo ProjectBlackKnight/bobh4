@@ -46,7 +46,7 @@ Positionsänderung
 * ![Skull](http://us.123rf.com/450wm/iwant61/iwant611408/iwant61140800040/30943311-scary-damon-schadel.jpg)
 * Aussehen nach Bild
 * Traktorstahl soll die Entermanöver vereinfachen
-* 
+ 
 ### Verhalten und Effekte
 * Nehmen nächstes Heldenschiff als Ziel
 * Gehen auf mittlere Distanz
@@ -54,4 +54,13 @@ Positionsänderung
 * Traktorstrahl: bleibt aufrecht bis zertsört, Effekt ändert sich mit HP, bei Voll Held immobilisiert, 3/4 Held stark
 verlangsamt, 1/2 Traktorstrahl bricht zusammen.
 * Moderater Normaler Angriff gegen Heldenschiffe
+
+## Jormungand (Schlangenschiff)
+###Aussehen
+* Riesige Schlange, die sich über viele Felder (eventuell volle Länge von Spielfeld) erstreckt
+
+###Verhalten und Effekte
+* visiert nächsten Heldenschiff an und versucht es zu durchbohren.
+* Durchbohrtes Heldenschiff nimmt so lange Schaden wie durchbohrt, wenn es sich bewegt nimmt es schaden, kann sich aber aus der Schlange rausbewegen
+* jeder Teil der Schlange verursacht Schaden bei betreten der entsprechenden Felder. Kleine Schiffe werden direkt bei Kontakt zerstört.
 
