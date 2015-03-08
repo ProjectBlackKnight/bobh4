@@ -7,9 +7,9 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 128)
 YELLOW= (255,255,0,0)
-BOARDWIDTH=10
-BOARDHEIGHT=7
-BOXSIZE=100
+BOARDWIDTH=15
+BOARDHEIGHT=11
+BOXSIZE=66
 
 FPSCLOCK=pygame.time.Clock()
 #fontObj = pygame.font.Font('freesansbold.ttf', 32)
