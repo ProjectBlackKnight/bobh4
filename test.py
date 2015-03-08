@@ -7,8 +7,8 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 128)
 YELLOW= (255,255,0,0)
-BOARDWIDTH=8
-BOARDHEIGHT=8
+BOARDWIDTH=10
+BOARDHEIGHT=7
 BOXSIZE=100
 
 FPSCLOCK=pygame.time.Clock()
@@ -18,7 +18,7 @@ FPSCLOCK=pygame.time.Clock()
 #textRectObj.center = (200, 150)
 def main():
         global DISPLAYSURF
-        DISPLAYSURF= pygame.display.set_mode((802,802))
+        DISPLAYSURF= pygame.display.set_mode((1024,768))
         board = []
         selectedUnitX = None
         selectedUnitY = None
@@ -72,7 +72,7 @@ def posFree(board,boxx,boxy):
 
 def drawBoard(board):
         for x in range(BOARDWIDTH):
-                for y in range(BOARDWIDTH):
+                for y in range(BOARDHEIGHT):
                         if board[x][y] == 1:
                                 half = int(0.5 * BOXSIZE)
                                 left, top = leftTopCoordsOfBox(x,y)
