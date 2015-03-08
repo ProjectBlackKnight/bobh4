@@ -1,0 +1,3 @@
+* Spielfeldgröße: 
+* Einzelfeldgröße:
+
