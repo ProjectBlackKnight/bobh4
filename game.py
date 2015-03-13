@@ -61,10 +61,14 @@ def main():
                         
                         board[boxx][boxy] = board[selectedUnitX][selectedUnitY]
                         board[selectedUnitX][selectedUnitY]=None
-                        board[boxx][boxy].selected = False
                         board[boxx][boxy].remainingMoves -=1
-                        selectedUnitX=None
-                        selectedUnitY=None
+                        if board[boxx][boxy].remainingMoves == 0 :
+                                board[boxx][boxy].selected = False
+                                selectedUnitX=None
+                                selectedUnitY=None
+                        else :
+                                selectedUnitX=boxx
+                                selectedUnitY=boxy
                 elif mouseClicked == True and selectedUnitX == None and posFree(board,boxx,boxy) == False and board[boxx][boxy].team == activeTeam and board[boxx][boxy].remainingMoves !=0 :
                         board[boxx][boxy].selected = True
                         selectedUnitX=boxx
@@ -72,9 +76,14 @@ def main():
                 elif mouseClicked == True and selectedUnit != None and posFree(board,boxx,boxy) == False and board[boxx][boxy].team != activeTeam and distance(boxx,boxy,selectedUnitX,selectedUnitY)<= selectedUnit.atkrange :
                         attack(board,selectedUnitX,selectedUnitY,boxx,boxy)
                         board[selectedUnitX][selectedUnitY].remainingMoves -=1
-                        board[selectedUnitX][selectedUnitY].selected = False
-                        selectedUnitX=None
-                        selectedUnitY=None
+                        if board[selectedUnitX][selectedUnitY].remainingMoves == 0 :
+                                board[selectedUnitX][selectedUnitY].selected = False
+                                selectedUnitX=None
+                                selectedUnitY=None
+                elif mouseClicked == True and selectedUnit != None and board[boxx][boxy] == selectedUnit:
+                        selectedUnitX = None
+                        selectedUnitY = None
+                        board[boxx][boxy].selected = False
                        
                 if boxx != None and boxy != None:
                         pygame.draw.rect(DISPLAYSURF,WHITE,(1+boxx*BOXSIZE,1+boxy*BOXSIZE,BOXSIZE,BOXSIZE),2)
