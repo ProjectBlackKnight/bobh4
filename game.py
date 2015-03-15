@@ -1,4 +1,4 @@
-import pygame,sys,random,ships
+import pygame,sys,random,ships,os
 from pygame.locals import *
 
 pygame.init()
@@ -19,7 +19,8 @@ FPSCLOCK=pygame.time.Clock()
 #textRectObj = textSurfaceObj.get_rect()
 #textRectObj.center = (200, 150)
 def main():
-        global DISPLAYSURF
+        global DISPLAYSURF, _image_library
+        _image_library = {}
         DISPLAYSURF= pygame.display.set_mode((1024,768))
         board = []
         selectedUnitX = None
@@ -136,7 +137,8 @@ def drawBoard(board):
                                         half = int(0.5 * BOXSIZE)
                                         left, top = leftTopCoordsOfBox(x,y)
                                         if board[x][y].selected == False :
-                                                pygame.draw.circle(DISPLAYSURF,YELLOW,(left + half,top + half),half-5)
+                                                #pygame.draw.circle(DISPLAYSURF,YELLOW,(left + half,top + half),half-5)
+                                                DISPLAYSURF.blit(get_image("valkyre.jpg"),(left,top))
                                         else:
                                                 unitSelected= True
                                                 selectedX, selectedY = x,y
@@ -158,7 +160,14 @@ def drawBoard(board):
                                                 pygame.draw.rect(DISPLAYSURF,PURPLE,(1+x*BOXSIZE,1+y*BOXSIZE,BOXSIZE-1,BOXSIZE-1))
                                         
         
-
+def get_image(path):
+        global _image_library
+        image = _image_library.get(path)
+        if image == None:
+                canonicalized_path = path.replace('/', os.sep).replace('\\', os.sep)
+                image = pygame.image.load(canonicalized_path)
+                _image_library[path] = image
+        return image
                
 def leftTopCoordsOfBox(boxx,boxy):
 
