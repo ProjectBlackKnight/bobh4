@@ -138,7 +138,9 @@ def drawBoard(board):
                                         left, top = leftTopCoordsOfBox(x,y)
                                         if board[x][y].selected == False :
                                                 #pygame.draw.circle(DISPLAYSURF,YELLOW,(left + half,top + half),half-5)
-                                                DISPLAYSURF.blit(get_image("valkyre.jpg"),(left,top))
+                                                img = get_image("valkyre.jpg")
+                                                img.set_colorkey((100,0,0))
+                                                DISPLAYSURF.blit(img,(left,top))
                                         else:
                                                 unitSelected= True
                                                 selectedX, selectedY = x,y
