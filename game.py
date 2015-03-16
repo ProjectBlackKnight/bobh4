@@ -31,7 +31,7 @@ def main():
                 column = []
                 for y in range(BOARDHEIGHT):
                         if random.randint(1,50) <= 3 :
-                                column.append(ships.Ship(100,100,20,3,random.randint(0,1),3))
+                                column.append(ships.Ship(100,100,20,3,random.randint(0,1),3,x,y))
                                 
                         else :
                                 column.append(None)
@@ -59,10 +59,16 @@ def main():
                                 mouseClicked = True
                 boxx , boxy = getBoxAtPixel (mousex, mousey)
                 if mouseClicked == True and selectedUnitX != None and posFree(board,boxx,boxy) and distance(boxx,boxy,selectedUnitX,selectedUnitY) <= selectedUnit.moveSpeed:
-                        
                         board[boxx][boxy] = board[selectedUnitX][selectedUnitY]
                         board[selectedUnitX][selectedUnitY]=None
                         board[boxx][boxy].remainingMoves -=1
+
+                        if board[boxx][boxy].team == 0 :
+                                board[boxx][boxy].currentlyInAnimation = True
+                                board[boxx][boxy].animationX , board[boxx][boxy].animationY = leftTopCoordsOfBox(selectedUnitX,selectedUnitY)
+                                soundObj = pygame.mixer.Sound("SoundsCrate-SciFi-PowerUp1.wav")
+                                soundObj.play()
+                                
                         if board[boxx][boxy].remainingMoves == 0 :
                                 board[boxx][boxy].selected = False
                                 selectedUnitX=None
@@ -132,8 +138,23 @@ def drawBoard(board):
         unitSelected = False
         for x in range(BOARDWIDTH):
                 for y in range(BOARDHEIGHT):
-                        if board[x][y]!=None :    
-                                if board[x][y].team == 0:
+                        if board[x][y]!=None :
+                                if board[x][y].currentlyInAnimation == True :
+                                        ship = board[x][y]
+                                        left,top = leftTopCoordsOfBox(x,y)
+                                        if ship.animationX < left :
+                                                ship.animationX += 6
+                                        if ship.animationX > left :
+                                                ship.animationX -= 6
+                                        if ship.animationY < top :
+                                                ship.animationY += 6
+                                        if ship.animationY > top :
+                                                ship.animationY -= 6
+                                        if ship.animationY == top and ship.animationX == left :
+                                                ship.currentlyInAnimation = False
+                                        img = get_image("valkyre.jpg")
+                                        DISPLAYSURF.blit(img,(ship.animationX,ship.animationY))
+                                elif board[x][y].team == 0:
                                         half = int(0.5 * BOXSIZE)
                                         left, top = leftTopCoordsOfBox(x,y)
                                         if board[x][y].selected == False :
@@ -144,7 +165,10 @@ def drawBoard(board):
                                         else:
                                                 unitSelected= True
                                                 selectedX, selectedY = x,y
-                                                pygame.draw.circle(DISPLAYSURF,WHITE,(left + half,top + half),half-5)
+                                                #pygame.draw.circle(DISPLAYSURF,WHITE,(left + half,top + half),half-5)
+                                                img = get_image("valkyre.jpg")
+                                                img.set_colorkey((100,0,0))
+                                                DISPLAYSURF.blit(img,(left,top))
                                 elif board[x][y].team == 1 :
                                         half = int(0.5 * BOXSIZE)
                                         left,top = leftTopCoordsOfBox(x,y)
