@@ -12,22 +12,17 @@ PURPLE = (69,0,68)
 BOARDWIDTH=15
 BOARDHEIGHT=11
 BOXSIZE=66
-
 FPSCLOCK=pygame.time.Clock()
-#fontObj = pygame.font.Font('freesansbold.ttf', 32)
-#textSurfaceObj = fontObj.render('Hello world!', True, GREEN, BLUE)
-#textRectObj = textSurfaceObj.get_rect()
-#textRectObj.center = (200, 150)
 def main():
         global DISPLAYSURF, _image_library
-        _image_library = {}
-        DISPLAYSURF= pygame.display.set_mode((1024,768))
+        _image_library = {} #remembers images that are already loaded so we dont load them from disc every time
+        DISPLAYSURF= pygame.display.set_mode((1024,768)) #starts the actual display window
         board = []
         selectedUnitX = None
         selectedUnitY = None
         selectedUnit = None
         activeTeam = 0
-        for x in range(BOARDWIDTH):
+        for x in range(BOARDWIDTH): #board is represented as a two dimensional array and gets randomly filled with some ships here
                 column = []
                 for y in range(BOARDHEIGHT):
                         if random.randint(1,50) <= 3 :
@@ -36,19 +31,20 @@ def main():
                         else :
                                 column.append(None)
                 board.append(column)
-        while True: #this is how you comment
+       
+        while True: #mainloop of the game each loop represents 1 frame
                 
                 mouseClicked = False
-                DISPLAYSURF.fill(BLUE)
+                DISPLAYSURF.fill(BLUE) #paints everything blue
+
                 if selectedUnitX != None :
                         selectedUnit = board[selectedUnitX][selectedUnitY]
                 else :
                         selectedUnit = None
                 for x in range(BOARDWIDTH):
                         for y in range(BOARDHEIGHT):
-                                pygame.draw.rect(DISPLAYSURF,GREEN,(1+x*BOXSIZE,1+y*BOXSIZE,BOXSIZE,BOXSIZE),1)
-        #DISPLAYSURF.blit(textSurfaceObj, textRectObj)
-                for event in pygame.event.get():
+                                pygame.draw.rect(DISPLAYSURF,GREEN,(1+x*BOXSIZE,1+y*BOXSIZE,BOXSIZE,BOXSIZE),1) #paints the grid 
+                for event in pygame.event.get(): #all player inputs are events and get handled here
                         if event.type == QUIT:
                                 pygame.quit()
                                 sys.exit()
@@ -57,8 +53,8 @@ def main():
                         elif event.type == MOUSEBUTTONUP:
                                 mousex , mousey  =event.pos
                                 mouseClicked = True
-                boxx , boxy = getBoxAtPixel (mousex, mousey)
-                if mouseClicked == True and selectedUnitX != None and posFree(board,boxx,boxy) and distance(boxx,boxy,selectedUnitX,selectedUnitY) <= selectedUnit.moveSpeed:
+                boxx , boxy = getBoxAtPixel (mousex, mousey) 
+                if mouseClicked == True and selectedUnitX != None and posFree(board,boxx,boxy) and distance(boxx,boxy,selectedUnitX,selectedUnitY) <= selectedUnit.moveSpeed: #these are the checks for whatever the player actually did
                         board[boxx][boxy] = board[selectedUnitX][selectedUnitY]
                         board[selectedUnitX][selectedUnitY]=None
                         board[boxx][boxy].remainingMoves -=1
@@ -92,14 +88,15 @@ def main():
                         selectedUnitY = None
                         board[boxx][boxy].selected = False
                        
-                if boxx != None and boxy != None:
+                if boxx != None and boxy != None: #highlights the box the mouse is currently hovering over
                         pygame.draw.rect(DISPLAYSURF,WHITE,(1+boxx*BOXSIZE,1+boxy*BOXSIZE,BOXSIZE,BOXSIZE),2)
                 if teamFinished(board,activeTeam):
-                        activeTeam = (activeTeam +1) % 2
+                        f =lambda x : (x+1) % 2 #just because this obviously needs some lambda
+                        activeTeam = f(activeTeam)
                         setToMaxMoves(board,activeTeam)
-                drawBoard(board)
-                pygame.display.update()
-                FPSCLOCK.tick(30)
+                drawBoard(board)#draws the ships
+                pygame.display.update()#all drawings before were memory only update actually prints it on the screen
+                FPSCLOCK.tick(30)#fps setting
 
 
 def attack(board,attackerX,attackerY,defenderX,defenderY):
@@ -117,18 +114,13 @@ def distance(x1,y1,x2,y2) :
         
 
 def setToMaxMoves(board,team):
-        for x in range (BOARDWIDTH):
-                for y in range(BOARDHEIGHT):
-                        if board[x][y]!=None:
-                                if board[x][y].team==team:
-                                        board[x][y].remainingMoves = 2
+         shipList = [s for x in board for s in x if s != None and s.team == team]
+         for ship in shipList :
+                 ship.remainingMoves =2
+        
 def teamFinished(board,team):
-        for x in range (BOARDWIDTH):
-                for y in range(BOARDHEIGHT):
-                        if board[x][y] != None:
-                             if board[x][y].team == team and board[x][y].remainingMoves > 0:
-                                     return False
-        return True
+        shipList = [s for x in board for s in x if s != None and s.team == team and s.remainingMoves>0]
+        return len(shipList) ==0
 
 def posFree(board,boxx,boxy):
         return (board[boxx][boxy]== None)
@@ -142,14 +134,9 @@ def drawBoard(board):
                                 if board[x][y].currentlyInAnimation == True :
                                         ship = board[x][y]
                                         left,top = leftTopCoordsOfBox(x,y)
-                                        if ship.animationX < left :
-                                                ship.animationX += 6
-                                        if ship.animationX > left :
-                                                ship.animationX -= 6
-                                        if ship.animationY < top :
-                                                ship.animationY += 6
-                                        if ship.animationY > top :
-                                                ship.animationY -= 6
+                                        f = lambda x , y: x+6 if x < y  else x-6 if x > y  else x #and even more lambda the horror continues
+                                        ship.animationX = f(ship.animationX,left)
+                                        ship.animationY = f(ship.animationY,top)
                                         if ship.animationY == top and ship.animationX == left :
                                                 ship.currentlyInAnimation = False
                                         img = get_image("valkyre.jpg")
@@ -157,18 +144,12 @@ def drawBoard(board):
                                 elif board[x][y].team == 0:
                                         half = int(0.5 * BOXSIZE)
                                         left, top = leftTopCoordsOfBox(x,y)
-                                        if board[x][y].selected == False :
-                                                #pygame.draw.circle(DISPLAYSURF,YELLOW,(left + half,top + half),half-5)
-                                                img = get_image("valkyre.jpg")
-                                                img.set_colorkey((100,0,0))
-                                                DISPLAYSURF.blit(img,(left,top))
-                                        else:
+                                        if board[x][y].selected == True :
                                                 unitSelected= True
                                                 selectedX, selectedY = x,y
-                                                #pygame.draw.circle(DISPLAYSURF,WHITE,(left + half,top + half),half-5)
-                                                img = get_image("valkyre.jpg")
-                                                img.set_colorkey((100,0,0))
-                                                DISPLAYSURF.blit(img,(left,top))
+                                        img = get_image("valkyre.jpg")
+                                        img.set_colorkey((100,0,0))
+                                        DISPLAYSURF.blit(img,(left,top))
                                 elif board[x][y].team == 1 :
                                         half = int(0.5 * BOXSIZE)
                                         left,top = leftTopCoordsOfBox(x,y)
@@ -178,7 +159,7 @@ def drawBoard(board):
                                                 unitSelected = True
                                                 selectedX, selectedY = x,y
                                                 pygame.draw.circle(DISPLAYSURF,WHITE,(left + half,top + half),half-5)
-        if unitSelected :
+        if unitSelected : #draws the purple squares if a unit is selected
                 for x in range(selectedX-board[selectedX][selectedY].moveSpeed,selectedX+board[selectedX][selectedY].moveSpeed+1) :
                         for y in range(selectedY-board[selectedX][selectedY].moveSpeed,selectedY+board[selectedX][selectedY].moveSpeed+1) :
                                 if x in range(BOARDWIDTH) and y in range(BOARDHEIGHT) :
@@ -186,7 +167,7 @@ def drawBoard(board):
                                                 pygame.draw.rect(DISPLAYSURF,PURPLE,(1+x*BOXSIZE,1+y*BOXSIZE,BOXSIZE-1,BOXSIZE-1))
                                         
         
-def get_image(path):
+def get_image(path): #looks if the image already is in library if not it loads the image
         global _image_library
         image = _image_library.get(path)
         if image == None:
