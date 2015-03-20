@@ -13,6 +13,8 @@ BOARDWIDTH=15
 BOARDHEIGHT=11
 BOXSIZE=66
 FPSCLOCK=pygame.time.Clock()
+
+
 def main():
         global DISPLAYSURF, _image_library
         _image_library = {} #remembers images that are already loaded so we dont load them from disc every time
@@ -91,8 +93,7 @@ def main():
                 if boxx != None and boxy != None: #highlights the box the mouse is currently hovering over
                         pygame.draw.rect(DISPLAYSURF,WHITE,(1+boxx*BOXSIZE,1+boxy*BOXSIZE,BOXSIZE,BOXSIZE),2)
                 if teamFinished(board,activeTeam):
-                        f =lambda x : (x+1) % 2 #just because this obviously needs some lambda
-                        activeTeam = f(activeTeam)
+                        (lambda x : (x+1) % 2)(activeTeam) #just because this obviously needs some lambda
                         setToMaxMoves(board,activeTeam)
                 drawBoard(board)#draws the ships
                 pygame.display.update()#all drawings before were memory only update actually prints it on the screen
@@ -117,10 +118,12 @@ def setToMaxMoves(board,team):
          shipList = [s for x in board for s in x if s != None and s.team == team]
          for ship in shipList :
                  ship.remainingMoves =2
+
         
 def teamFinished(board,team):
         shipList = [s for x in board for s in x if s != None and s.team == team and s.remainingMoves>0]
         return len(shipList) ==0
+
 
 def posFree(board,boxx,boxy):
         return (board[boxx][boxy]== None)
@@ -175,12 +178,14 @@ def get_image(path): #looks if the image already is in library if not it loads t
                 image = pygame.image.load(canonicalized_path)
                 _image_library[path] = image
         return image
+
                
 def leftTopCoordsOfBox(boxx,boxy):
 
         left = boxx * BOXSIZE + 1
         top = boxy * BOXSIZE + 1
         return (left,top)
+
 
 def getBoxAtPixel(x,y):
         for boxx in range(BOARDWIDTH):
@@ -190,6 +195,7 @@ def getBoxAtPixel(x,y):
                         if boxRect.collidepoint(x,y):
                                 return (boxx,boxy)
         return (None, None)
+
 
 if __name__ == '__main__':
         main()
