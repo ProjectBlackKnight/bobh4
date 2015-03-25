@@ -1,4 +1,4 @@
-import pygame,sys,random,ships,os
+import pygame,sys,random,ships,enemies,os
 from pygame.locals import *
 
 pygame.init()
@@ -13,6 +13,7 @@ BOARDWIDTH=15
 BOARDHEIGHT=11
 BOXSIZE=66
 FPSCLOCK=pygame.time.Clock()
+
 
 
 def main():
@@ -195,6 +196,49 @@ def getBoxAtPixel(x,y):
                         if boxRect.collidepoint(x,y):
                                 return (boxx,boxy)
         return (None, None)
+
+def setShips(board):
+        for x in range(BOARDWIDTH):
+                column = []
+                for y in range(BOARDHEIGHT):
+                        if random.randint(1,50) <= 3 :
+                                column.append(ships.Ship(100,100,20,3,0,3,x,y))
+
+                        else :
+                                column.append(None)
+                board.append(column)
+        return (board)
+
+def setEnemies(board,budget)
+
+        rocketTooth=enemies.Enemy("RocketTooth",240,60,1,4,4,1,1)
+        theSign=enemies.Enemy("TheSign",400,110,2,7,5,1,3)
+        skull=enemies.Enemy("Skull",700,150,3,9,3,1,5)
+        pentagram=enemies.Enemy("Pentagram",666,0,4,10,3,1,0)
+        i=0
+        for x in range(BOARDWIDTH):
+                column = []
+                for y in range(BOARDHEIGHT):
+                        if i <= budget:
+                            r=random.randint(1,10);
+                            if r <=4:
+                                column.append(enemies.Enemy("RocketTooth",240,60,1,4,4,1,1,x,y))
+                                i=i+1
+                            if  r>4  and r <= 7 :
+                                column.append(enemies.Enemy("TheSign",400,110,2,7,5,1,3,x,y))
+                                i=i+2
+                            if r>7 and r <=9 :
+                                column.append(enemies.Enemy("Skull",700,150,3,9,3,1,5,x,y))
+                                i=i+3
+                            else :
+                                column.append(enemies.Enemy("Pentagram",666,0,4,10,3,1,0,x,y))
+                                i=i+4
+
+                        else :
+                                column.append(None)
+                board.append(column)
+        return (board)
+
 
 
 if __name__ == '__main__':
