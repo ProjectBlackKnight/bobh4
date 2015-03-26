@@ -198,7 +198,7 @@ def getBoxAtPixel(x,y):
         return (None, None)
 
 def setShips(board):
-        for x in range(BOARDWIDTH):
+        for x in range(1,3):
                 column = []
                 for y in range(BOARDHEIGHT):
                         if random.randint(1,50) <= 3 :
@@ -206,18 +206,20 @@ def setShips(board):
 
                         else :
                                 column.append(None)
+
                 board.append(column)
         return (board)
 
-def setEnemies(board,budget)
+def setEnemies(board,budget):
 
         rocketTooth=enemies.Enemy("RocketTooth",240,60,1,4,4,1,1)
         theSign=enemies.Enemy("TheSign",400,110,2,7,5,1,3)
         skull=enemies.Enemy("Skull",700,150,3,9,3,1,5)
         pentagram=enemies.Enemy("Pentagram",666,0,4,10,3,1,0)
         i=0
-        for x in range(BOARDWIDTH):
+        for x in range(13, 15):
                 column = []
+
                 for y in range(BOARDHEIGHT):
                         if i <= budget:
                             r=random.randint(1,10);
