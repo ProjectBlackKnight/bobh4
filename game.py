@@ -224,21 +224,21 @@ def setEnemies(board,budget):
                         if i <= budget:
                             r=random.randint(1,10);
                             if r <=4:
-                                column.append(enemies.Enemy("RocketTooth",240,60,1,4,4,1,1,x,y))
+                                column.insert(y,enemies.Enemy("RocketTooth",240,60,1,4,4,1,1,x,y))
                                 i=i+1
                             if  r>4  and r <= 7 :
-                                column.append(enemies.Enemy("TheSign",400,110,2,7,5,1,3,x,y))
+                                column.insert(y,enemies.Enemy("TheSign",400,110,2,7,5,1,3,x,y))
                                 i=i+2
                             if r>7 and r <=9 :
-                                column.append(enemies.Enemy("Skull",700,150,3,9,3,1,5,x,y))
+                                column.insert(y,enemies.Enemy("Skull",700,150,3,9,3,1,5,x,y))
                                 i=i+3
                             else :
-                                column.append(enemies.Enemy("Pentagram",666,0,4,10,3,1,0,x,y))
+                                column.insert(y,enemies.Enemy("Pentagram",666,0,4,10,3,1,0,x,y))
                                 i=i+4
 
                         else :
                                 column.append(None)
-                board.append(column)
+                board.insert(x,column)
         return (board)
 
 
