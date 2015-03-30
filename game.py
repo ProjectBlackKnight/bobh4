@@ -211,34 +211,79 @@ def setShips(board):
         return (board)
 
 def setEnemies(board,budget):
+        # bessere Lösung erfoderlich, aber so gut einstell- und lesbar
 
-        rocketTooth=enemies.Enemy("RocketTooth",240,60,1,4,4,1,1)
-        theSign=enemies.Enemy("TheSign",400,110,2,7,5,1,3)
-        skull=enemies.Enemy("Skull",700,150,3,9,3,1,5)
-        pentagram=enemies.Enemy("Pentagram",666,0,4,10,3,1,0)
+        rocketTooth = enemies.Enemy()
+        rocketTooth.name = "RocketTooth"
+        rocketTooth.hp = 240
+        rocketTooth.damage = 60
+        rocketTooth.value = 1
+        rocketTooth.prob = 4
+        rocketTooth.moveSpeed = 4
+        rocketTooth.team = 1
+        rocketTooth.atkrange = 1
+
+        theSign = enemies.Enemy()
+        theSign.name = "TheSign"
+        theSign.hp = 400
+        theSign.damage = 110
+        theSign.value = 2
+        theSign.prob = 7
+        theSign.moveSpeed = 5
+        theSign.team = 1
+        theSign.atkrange = 3
+
+        skull = enemies.Enemy("Skull",700,150,3,9,3,1,5)
+        skull.name = "Skull"
+        skull.hp = 700
+        skull.damage = 150
+        skull.value = 3
+        skull.prob = 9
+        skull.moveSpeed = 3
+        skull.team = 1
+        skull.atkrange = 5
+
+        pentagram = enemies.Enemy()
+        pentagram.name = "Pentagram"
+        pentagram.hp = 666
+        pentagram.damage = 0
+        pentagram.value = 4
+        pentagram.prob = 10
+        pentagram.moveSpeed = 3
+        pentagram.team = 1
+        pentagram.atkrange = 0
+
         i=0
         for x in range(13, 15):
                 column = []
 
                 for y in range(BOARDHEIGHT):
                         if i <= budget:
-                            r=random.randint(1,10);
+                            r=random.randint(1,10)
                             if r <=4:
-                                column.insert(y,enemies.Enemy("RocketTooth",240,60,1,4,4,1,1,x,y))
-                                i=i+1
+                                rocketTooth.x = x
+                                rocketTooth.y = y
+                                column.insert(y, rocketTooth)
+                                i += 1
                             if  r>4  and r <= 7 :
-                                column.insert(y,enemies.Enemy("TheSign",400,110,2,7,5,1,3,x,y))
-                                i=i+2
+                                theSign.x = x
+                                theSign.y = y
+                                column.insert(y, theSign)
+                                i += 2
                             if r>7 and r <=9 :
-                                column.insert(y,enemies.Enemy("Skull",700,150,3,9,3,1,5,x,y))
-                                i=i+3
+                                skull.x = x
+                                skull.y = y
+                                column.insert(y, skull)
+                                i += 3
                             else :
-                                column.insert(y,enemies.Enemy("Pentagram",666,0,4,10,3,1,0,x,y))
-                                i=i+4
+                                pentagram.x = x
+                                pentagram.y = y
+                                column.insert(y, pentagram)
+                                i += 4
 
                         else :
                                 column.append(None)
-                board.insert(x,column)
+                board.insert(x, column)
         return (board)
 
 
