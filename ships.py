@@ -1,9 +1,9 @@
 class Ship:
-    def __init__(self,hp,shields,damage,movespeed,team,atkrange,x,y):
+    def __init__(self, name, hp, damage, movepeed, atkrange):
+        self.name = name
         self.hp = hp
-        self.shields = shields
         self.damage = damage
-        self.moveSpeed = movespeed
+        self.movespeed = movespeed
         self.team = team
         self.atkrange = atkrange
         self.remainingMoves = 2
@@ -14,4 +14,5 @@ class Ship:
         self.x=x
         self.y=y
         self.image="path"
-        
+
+
