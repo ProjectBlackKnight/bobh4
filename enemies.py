@@ -8,78 +8,54 @@ class Enemy(Ship):
         self.value = value
         self.prob = prob
 
-def creatRT():
-    rtname="RocketTooth"
-    rthp=240
-    rtdamage=60
-    rtvalue=1
-    rtprob=4
-    rtmovespeed=4
-    rtatkrange=1
-    rocketTooth = Enemy(rtname, rthp, rtdamage, rtmovespeed, rtatkrange, rtvalue, rtprob)
+def createRT():
+    name = "RocketTooth"
+    hp = 240
+    damage = 60
+    value = 1
+    prob = 4
+    movespeed = 4
+    atkrange = 1
+    rocketTooth = Enemy(name, hp, damage, movespeed, atkrange, value, prob)
     return rocketTooth
 
+def createTS():
+    name = "TheSign"
+    hp = 400
+    damage = 110
+    value = 2
+    prob = 7
+    movespeed = 5
+    atkrange = 3
+    theSign = Enemy(name, hp, damage, movespeed, atkrange, value, prob)
+    return theSign
+
+def createSK():
+    name = "Skull"
+    hp = 700
+    damage = 150
+    value = 3
+    prob = 9
+    movespeed = 3
+    atkrange = 5
+    skull = Enemy(name, hp, damage, movespeed, atkrange, value, prob)
+    return skull
+
+def createPG():
+    name = "Pentagramm"
+    hp = 666
+    damage = 0
+    value = 4
+    prob = 10
+    movespeed = 3
+    atkrange = 0
+    pentagramm = Enemy(name, hp, damage, movespeed, atkrange, value, prob)
+    return pentagramm
 
 
 
 
 
-"""
-    ROCKETTOOTH = Enemy()
-    ROCKETTOOTH.name = "RocketTooth"
-    ROCKETTOOTH.hp = 240
-    ROCKETTOOTH.damage = 60
-    ROCKETTOOTH.value = 1
-    ROCKETTOOTH.prob = 4
-    ROCKETTOOTH.moveSpeed = 4
-    ROCKETTOOTH.team = 1
-    ROCKETTOOTH.atkrange = 1
 
-    THESIGN = Enemy()
-    THESIGN.name = "TheSign"
-    THESIGN.hp = 400
-    THESIGN.damage = 110
-    THESIGN.value = 2
-    THESIGN.prob = 7
-    THESIGN.moveSpeed = 5
-    THESIGN.team = 1
-    THESIGN.atkrange = 3
-
-    SKULL = Enemy()
-    SKULL.name = "Skull"
-    SKULL.hp = 700
-    SKULL.damage = 150
-    SKULL.value = 3
-    SKULL.prob = 9
-    SKULL.moveSpeed = 3
-    SKULL.team = 1
-    SKULL.atkrange = 5
-
-    PENTAGRAM = Enemy()
-    PENTAGRAM.name = "Pentagram"
-    PENTAGRAM.hp = 666
-    PENTAGRAM.damage = 0
-    PENTAGRAM.value = 4
-    PENTAGRAM.prob = 10
-    PENTAGRAM.moveSpeed = 3
-    PENTAGRAM.team = 1
-    PENTAGRAM.atkrange = 0
-
-
-def getRT():
-    return ROCKETTOOTH
-
-
-def getTS():
-    return THESIGN
-
-
-def getSK():
-    return SKULL
-
-
-def getPG():
-    return PENTAGRAM
-"""
 
 
