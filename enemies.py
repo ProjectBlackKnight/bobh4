@@ -1,29 +1,14 @@
-rocketTooth = enemies.Enemy("RocketTooth", 240, 60, 1, 4, 4, 1, 1)
-theSign = enemies.Enemy("TheSign", 400, 110, 2, 7, 5, 1, 3)
-skull = enemies.Enemy("Skull", 700, 150, 3, 9, 3, 1, 5)
-pentagram = enemies.Enemy("Pentagram", 666, 0, 4, 10, 3, 1, 0)
+import pygame,sys,random,ships, os
+from pygame.locals import *
 
-
-class Enemy:
-    def __init__(self, name, hp, damage, value, prob, movespeed, team, atkrange, x, y):
+class Enemy(Ship):
+    def __init__(self):
         self.hp = hp
-        self.damage = damage
-        self.moveSpeed = movespeed
-        self.team = team
-        self.atkrange = atkrange
-        self.remainingMoves = 2
-        self.selected = False
-        self.currentlyInAnimation = False
-        self.animationX = 0
-        self.animationY = 0
-        self.x = x
-        self.y = y
-        self.image = "path"
-        self.name = name
+        self.team = 1
         self.value = value
         self.prob = prob
 
-
+"""
     ROCKETTOOTH = Enemy()
     ROCKETTOOTH.name = "RocketTooth"
     ROCKETTOOTH.hp = 240
@@ -79,6 +64,6 @@ def getSK():
 
 def getPG():
     return PENTAGRAM
-
+"""
 
 
