@@ -3,7 +3,6 @@ from pygame.locals import *
 
 class Enemy(Ship):
     def __init__(self):
-        self.hp = hp
         self.team = 1
         self.value = value
         self.prob = prob
