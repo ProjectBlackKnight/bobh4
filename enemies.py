@@ -9,16 +9,14 @@ class Enemy(Ship):
         self.prob = prob
 
 def creatRT():
-
-    rocketTooth = Enemy("RocketTooth", 240, 60, 4, 1, 1, 4)
-    rocketTooth.name = "RocketTooth"
-    rocketTooth.hp = 240
-    rocketTooth.damage = 60
-    rocketTooth.value = 1
-    rocketTooth.prob = 4
-    rocketTooth.movespeed = 4
-    rocketTooth.atkrange = 1
-
+    rtname="RocketTooth"
+    rthp=240
+    rtdamage=60
+    rtvalue=1
+    rtprob=4
+    rtmovespeed=4
+    rtatkrange=1
+    rocketTooth = Enemy(rtname, rthp, rtdamage, rtmovespeed, rtatkrange, rtvalue, rtprob
     return rocketTooth
 
 
