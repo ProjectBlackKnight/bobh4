@@ -8,6 +8,24 @@ class Enemy(Ship):
         self.value = value
         self.prob = prob
 
+def creatRT():
+
+    rocketTooth = Enemy("RocketTooth", 240, 60, 4, 1, 1, 4)
+    rocketTooth.name = "RocketTooth"
+    rocketTooth.hp = 240
+    rocketTooth.damage = 60
+    rocketTooth.value = 1
+    rocketTooth.prob = 4
+    rocketTooth.movespeed = 4
+    rocketTooth.atkrange = 1
+
+    return rocketTooth
+
+
+
+
+
+
 """
     ROCKETTOOTH = Enemy()
     ROCKETTOOTH.name = "RocketTooth"

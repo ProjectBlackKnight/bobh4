@@ -9,7 +9,7 @@ class RocketTooth(Enemy):
         self.hp = 240
         self.damage = 60
         self.aktrange = 1
-        self.movespeed =4
+        self.movespeed = 4
         self.value = 1
         self.prob = 4
 
