@@ -1,5 +1,5 @@
 class Ship:
-    def __init__(self):
+    def __init__(self, name, hp, damage, movespeed):
         self.name = name
         self.hp = hp
         self.damage = damage
