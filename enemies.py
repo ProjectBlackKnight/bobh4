@@ -2,8 +2,8 @@ import pygame,sys,random,ships, os
 from pygame.locals import *
 
 class Enemy(Ship):
-    def __init__(self, name, hp, damage, movespeed, value, prob):
-        super.__init__(name, hp, damage, movespeed)
+    def __init__(self, name, hp, damage, movespeed, atkrange, value, prob):
+        super.__init__(name, hp, damage, movespeed, atkrange)
         self.team = 1
         self.value = value
         self.prob = prob
