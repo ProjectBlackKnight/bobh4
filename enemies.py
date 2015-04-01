@@ -16,7 +16,7 @@ def creatRT():
     rtprob=4
     rtmovespeed=4
     rtatkrange=1
-    rocketTooth = Enemy(rtname, rthp, rtdamage, rtmovespeed, rtatkrange, rtvalue, rtprob
+    rocketTooth = Enemy(rtname, rthp, rtdamage, rtmovespeed, rtatkrange, rtvalue, rtprob)
     return rocketTooth
 
 
